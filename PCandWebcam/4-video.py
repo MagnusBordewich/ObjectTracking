@@ -1,7 +1,6 @@
 import numpy as np
 import cv2
 import time
-import Image
 
 w=640
 h=480
@@ -16,25 +15,22 @@ while (True):
     image = cv2.flip(image,-1)
     image = cv2.GaussianBlur(image,(5,5),0)
 
-    image_HSV = cv2.cvtColor(binary,cv2.COLOR_BGR2HSV)
-    lower_pink = np.array([166,50,50])
-    upper_pink = np.array([174,255,255])
-    mask = cv2.inRange(image_HSV,lower_pink,upper_pink)
-    mask = cv2.GaussianBlur(mask,(5,5),0)
-            
-    LRarray = np.sum(mask,axis=0)/255
-    max_x_intensity = 0
-    max_x_coordinate = 0
-    for i in range(w):
-        if LRarray[i]>max_x_intensity:
-            max_x_coordinate=i
-            max_x_intensity=LRarray[i]
-            
-    cv2.line(image,(max_x_coordinate,0),(max_x_coordinate,h-1),[255,255,255])
-    cv2.imshow('View.png',image)
-    # Esc key to stop, otherwise repeat after 33 milliseconds
-    key_pressed = cv2.waitKey(33)
+    image_HSV = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+    colour = str(image_HSV[h/2][w/2])
+    cv2.line(image,(0,h/2),(w-1,h/2),[255,255,255])        
+    cv2.line(image,(w/2,0),(w/2,h-1),[255,255,255])
+    cv2.putText(image,colour,(10,30),cv2.FONT_HERSHEY_PLAIN,1,[255,255,255])
+    cv2.imshow('View',image)
+    # Esc key to stop, otherwise repeat after 1 milliseconds
+    key_pressed = cv2.waitKey(1)
     if key_pressed == 27:    
         break
     
 cv2.destroyAllWindows()
+my_camera.release()
+# due to a bug in openCV you need to call wantKey three times to get the
+# window to dissappear properly. Each wait only last 10 milliseconds
+cv2.waitKey(10)
+time.sleep(0.1)
+cv2.waitKey(10)
+cv2.waitKey(10)
