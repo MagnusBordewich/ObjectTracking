@@ -22,7 +22,7 @@ cv2.destroyAllWindows()
 # Is the image the right way up? If not, flip it. Try changing the -1 to 0 or 1.
 image = cv2.flip(image,-1)
 # We could apply a blur to remove noise
-image = cv2.GaussianBlur(image,(5,5),0)
+image = cv2.GaussianBlur(image,(55,55),0)
 # Display the image on screen
 cv2.imshow('View.png',image)
 cv2.waitKey(0)
