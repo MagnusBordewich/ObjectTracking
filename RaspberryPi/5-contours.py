@@ -2,13 +2,13 @@ import numpy as np
 import cv2
 import time
 import os
-import Image
+
 
 # This system command loads the right drivers for the Raspberry Pi camera
 os.system('sudo modprobe bcm2835-v4l2')
 
-w=480
-h=320
+w=240
+h=180
 
 my_camera = cv2.VideoCapture(0)
 my_camera.set(3,w)
@@ -20,7 +20,7 @@ while (True):
     image = cv2.flip(image,-1)
     image = cv2.GaussianBlur(image,(5,5),0)
 
-    image_HSV = cv2.cvtColor(binary,cv2.COLOR_BGR2HSV)
+    image_HSV = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
     lower_pink = np.array([166,50,50])
     upper_pink = np.array([174,255,255])
     mask = cv2.inRange(image_HSV,lower_pink,upper_pink)
@@ -32,11 +32,17 @@ while (True):
     # contours is a list, and each element is a set of coordinates for points on the boundary of an object 'join the dots' style.
     # we can draw the contours with the following command
     cv2.drawContours(image,contours,-1,(255,0,0),3)
-    cv2.imshow('View.png',image)
-    cv2.waitKey()
-    # Esc key to stop, otherwise repeat after 33 milliseconds
-    key_pressed = cv2.waitKey(33)
+    cv2.imshow('View',image)
+    # Esc key to stop, otherwise repeat 
+    key_pressed = cv2.waitKey(1)
     if key_pressed == 27:    
         break
     
 cv2.destroyAllWindows()
+my_camera.release()
+# due to a bug in openCV you need to call wantKey three times to get the
+# window to dissappear properly. Each wait only last 10 milliseconds
+cv2.waitKey(10)
+time.sleep(0.1)
+cv2.waitKey(10)
+cv2.waitKey(10)
