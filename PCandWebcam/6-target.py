@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import time
-import Image
+
 
 w=640
 h=480

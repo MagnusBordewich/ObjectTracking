@@ -16,9 +16,9 @@ while (True):
     image = cv2.GaussianBlur(image,(5,5),0)
 
     image_HSV = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
-    colour = str(image_HSV[h/2][w/2])
-    cv2.line(image,(0,h/2),(w-1,h/2),[255,255,255])        
-    cv2.line(image,(w/2,0),(w/2,h-1),[255,255,255])
+    colour = str(image_HSV[h//2][w//2])
+    cv2.line(image,(0,h//2),(w-1,h//2),[255,255,255])        
+    cv2.line(image,(w//2,0),(w//2,h-1),[255,255,255])
     cv2.putText(image,colour,(10,30),cv2.FONT_HERSHEY_PLAIN,1,[255,255,255])
     cv2.imshow('View',image)
     # Esc key to stop, otherwise repeat after 1 milliseconds

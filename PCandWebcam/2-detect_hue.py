@@ -1,7 +1,6 @@
 import numpy as np
 import cv2
 import time
-import Image
 
 w=640
 h=480
@@ -28,7 +27,7 @@ image = cv2.GaussianBlur(image,(5,5),0)
 # change the colour space to HSV
 image_HSV = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
 # print the HSV values of the middle pixel
-print('Middle pixel HSV: ',image_HSV[h/2][w/2])
+print('Middle pixel HSV: ',image_HSV[h//2][w//2])
 # define the range of hues to detect - adjust these to detect different colours
 lower_pink = np.array([160,50,50])
 upper_pink = np.array([175,255,255])
