@@ -27,7 +27,11 @@ while (True):
     mask = cv2.GaussianBlur(mask,(5,5),0)
 
     # findContours returns a list of the outlines of the white shapes in the mask (and a heirarchy that we shall ignore)            
-    contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+    # API differences:
+    #   OpenCV 2.x: findContours -> contours, hierarchy
+    #   OpenCV 3.x: findContours -> image, contours, hierarchy
+    #   OpenCV 4.x: findContours -> contours, hierarchy
+    contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)[-2:]
 
     # If we have at least one contour, look through each one and pick the biggest
     if len(contours)>0:
