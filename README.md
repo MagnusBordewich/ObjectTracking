@@ -12,11 +12,11 @@ Your browser does not support the video tag. Try Chrome or Safari.
 
 There are two version of the files: one for use on a Raspberry Pi with camera module, and the other for use on a PC with webcam. There are few changes, but in order to keep the code clean and clear I have made separate versions. 
 
-<p>First you need to make sure that your Raspberry Pi is properly set up (see <a href="GettingStarted.html">Getting Started</a>), and can obtain an image programmatically. My preferred option is to use v4l2, see the notes under <a href="CameraTrap.html#drivers">Camera Trap</a>. You will also need to install the open Computer Vision library <a href="http://docs.opencv.org">openCV</a>, with 'sudo apt-get install libopencv-dev python-opencv'.</p>
+<p>First you need to make sure that your Raspberry Pi is properly set up and can obtain an image programmatically. My preferred option is to use v4l2. You will also need to install the open Computer Vision library <a href="http://docs.opencv.org">openCV</a>, with 'sudo apt-get install libopencv-dev python-opencv'.</p>
 
 <h2>1. Getting an image</h2>
 
-<p>Once you have those elements installed you can obtain an openCV image object with the python program <a href="https://github.com/MagnusBordewich/ObjectTracking/blob/master/RaspberryPi/1-capture_image.py">1-capture_image.py</a>. Open it in IDLE, and select Run>Run Module from the menu bar. You should see an image from the camera appear on screen. The press a key to see a transformed image.</p> 
+<p>Once you have those elements installed you can obtain an openCV image object with the python program <I>1-capture_image.py</I>. Open it in IDLE, and select Run>Run Module from the menu bar. You should see an image from the camera appear on screen. The press a key to see a transformed image.</p> 
 <p> Once you have that working try the following:</p>
 <ul>
 <li>Reorienting the image if it is upside down: find the function cv2.flip(image,-1). The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.</li>
@@ -27,7 +27,7 @@ There are two version of the files: one for use on a Raspberry Pi with camera mo
 <h2>2. Identify a region by hue</h2>
 <p>Computers normally store an image as a giant matrix with three values for each pixel: the intensity if red, green and blue (RGB values) that combine to make the colour of the pixel. A simple but fairly robust method of indetifying an object is by colour. However you want to specify the colour in a way that isn't too much affected by how light or dark the lighting on the object is, or how washed out or exposed the image is. This is tricky when specifying ranges of RGB values, but can be done by looking at the hue of the object.</p>
 <div style="float:right" >
-            <img src="HSV.png" height="180"/>
+            <img src="images/HSV.png" height="180"/>
         </div>
 <p> This is done in the program <a href="https://github.com/MagnusBordewich/ObjectTracking/blob/master/RaspberryPi/2-detect_hue.py">2-detect_hue.py</a>, again press a key to step through the images. The function cv2.cvtColor(image,cv2.COLOR_BGR2HSV) converts the representation from three RGB values for each pixel, to a Hue, Saturation and Value value for each pixel. Hue give the essential colour, Saturation gives the intensity of that colour and Value gives the overall brightness of the pixel, as depicted in this image.</p>
 
