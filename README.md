@@ -4,11 +4,8 @@
 This page is about a project to create an intelligent Raspberry Pi powered mobile robot. The goal is to have a robot that can teach itself to track and chase objects. There are three phases: Object Tracking, Motor Control and Machine Learning. The first two are complete and the robot can track an object of a given colour and chase it. However it does not teach itself to do this. Over the summer one of my students will be creating an <a href="http://en.wikipedia.org/wiki/Artificial_neural_network">Artificial Neural Network</a> for the machine learning part of the project. 
 
 <h1>Phase 1: Object detection</h1>
-<div align=center style='text-align:center'>
 <video width="320" height="240" autoplay="autoplay" loop>
   <source src="images/Targetting.mov" type="video/mp4">
-Your browser does not support the video tag. Try Chrome or Safari.
-</div>
 
 There are two version of the files: one for use on a Raspberry Pi with camera module, and the other for use on a PC with webcam. There are few changes, but in order to keep the code clean and clear I have made separate versions. 
 
