@@ -49,7 +49,7 @@ There are two version of the files: one for use on a Raspberry Pi with camera mo
 <p> The result of the loop is that we know what value of i corresponds to the column with the largest number of pink pixels, and we have remembered it as max_x_coordinate. We then draw a line on the image from the top of this column to the bottom.</p>
 <p> Once you are happy with this, try the following:</p>
 <div style="float:right" >
-            <img src="Daffodils.jpg" height="180"/>
+            <img src="images/Daffodils.jpg" height="180"/>
         </div>
 
 <ul>
@@ -97,7 +97,7 @@ This additional example (only accessible from inside our network), is part of a 
 <h2>Extensions</h2>
 There are many directions in which you could take this further. I have used the information from the processed image to get a mobile robot to follow an object (details will appear below), but you could also:
 <div style="float:right" >
-            <img src="terminator_vision.jpg" height="180"/>
+            <img src="images/terminator_vision.jpg" height="180"/>
         </div>
 <ul>
 <li>Choose a target by dragging the mouse over a region: <a href="https://raw.githubusercontent.com/tobybreckon/python-examples-cv/master/kalman_tracking_live.py">example code</a> for this from one of our Image Processing courses.
@@ -121,14 +121,14 @@ In the video below the robot is first being controlled by the iPhone gyroscopes,
 
 <div align=center style='text-align:center'>
 <video width="480" height="268" autoplay="autoplay" loop>
-  <source src="Pibot2.mov" type="video/mp4">
+  <source src="images/Pibot3.mov" type="video/mp4">
 Your browser does not support the video tag. Try Chrome or Safari.
 </div>
 <p>
 The robot I created uses the <a href="http://www.dexterindustries.com/BrickPi/">BrickPi</a> system for connecting to Lego Mindstorms motors. You will need to follow <a href="http://www.dexterindustries.com/BrickPi/getting-started/">their instructions</a> in order to install the necessary drivers - I took the easy option of using their Raspian image and then installing everything else I wanted, but you can modify an existing system. <br>
 </p>
 <div style="float:right" >
-            <img src="Motor_Ports_Blue.png" /></div>
+            <img src="images/Motor_Ports_Blue.png" /></div>
             
 <p>The first step is to gain control of the motors. The Lego motors attach with a simple cable to one of the ports on the BrickPi board - make sure you know which ports you have used (see image to the right)! You can then run a simple test program to check the basic set up works. There is one in the BrickPi folder Sensor_Examples installed with the drivers (<a href="LEGO-Motor_Test.py">LEGO-Motor_Test.py</a>). Note that the motor speeds must be set between -255 and 255, but low speeds (less than 100) may give poor results - i.e. not rotate under any load. Also the command 'BrickPi.MotorSpeed[PORT_A] = 200' sets the value desired for the motor speed, but does not actuallyt make the motor run. Instead you must use the command 'BrickPiUpdateValues()' to actually push the values to the motors, moreover you must push the values to the motors very frequenly, every 1/10 of a second, or the motors stop! Look at the example code to see how the command is repeated so often.</p>
 
@@ -147,6 +147,6 @@ However we do not want the bot to follow a fixed program. instead we want it to 
 Note: once you get into chasing objects, you need quick reactions. You will need to look through your code and make sure you are not doing anything unecessary in the main loop, and that the image size (w,h) is as small as possible (so that image anlysis is quick) but still large enough that objects can be reliably detected.<br>
 
 <div style="right" >
-            <a href="pibot.py"><img src="Pibot.png" /></a></div>
+            <img src="images/Pibot.png" /></div>
 
 
