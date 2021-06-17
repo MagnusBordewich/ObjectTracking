@@ -116,6 +116,7 @@ There are many directions in which you could take this further. I have used the 
 <h1>Phase 2: Controlling the robot</h1>
 In the video below the robot is first being controlled by the iPhone gyroscopes, then it is tracking targets of varying colours and trying to chase them.
 
+[![Demo ObjectTracking alpha](https://j.gifs.com/RlgQmO.gif)]
 <p>
 The robot I created uses the <a href="http://www.dexterindustries.com/BrickPi/">BrickPi</a> system for connecting to Lego Mindstorms motors. You will need to follow <a href="http://www.dexterindustries.com/BrickPi/getting-started/">their instructions</a> in order to install the necessary drivers - I took the easy option of using their Raspian image and then installing everything else I wanted, but you can modify an existing system. <br>
 </p>
