@@ -4,8 +4,6 @@
 This page is about a project to create an intelligent Raspberry Pi powered mobile robot. The goal is to have a robot that can teach itself to track and chase objects. There are three phases: Object Tracking, Motor Control and Machine Learning. The first two are complete and the robot can track an object of a given colour and chase it. However it does not teach itself to do this. Over the summer one of my students will be creating an <a href="http://en.wikipedia.org/wiki/Artificial_neural_network">Artificial Neural Network</a> for the machine learning part of the project. 
 
 <h1>Phase 1: Object detection</h1>
-<video width="320" height="240" autoplay="autoplay" loop>
-  <source src="images/Targetting.mov" type="video/mp4">
 
 There are two version of the files: one for use on a Raspberry Pi with camera module, and the other for use on a PC with webcam. There are few changes, but in order to keep the code clean and clear I have made separate versions. 
 
@@ -13,7 +11,7 @@ There are two version of the files: one for use on a Raspberry Pi with camera mo
 
 <h2>1. Getting an image</h2>
 
-<p>Once you have those elements installed you can obtain an openCV image object with the python program <I>1-capture_image.py</I>. Open it in IDLE, and select Run>Run Module from the menu bar. You should see an image from the camera appear on screen. The press a key to see a transformed image.</p> 
+<p>Once you have those elements installed you can obtain an openCV image object with the python program <a href="https://github.com/MagnusBordewich/ObjectTracking/blob/master/RaspberryPi/1-capture_image.py">1-capture_image.py</a>. Open it in IDLE, and select Run>Run Module from the menu bar. You should see an image from the camera appear on screen. The press a key to see a transformed image.</p> 
 <p> Once you have that working try the following:</p>
 <ul>
 <li>Reorienting the image if it is upside down: find the function cv2.flip(image,-1). The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.</li>
@@ -116,11 +114,6 @@ There are many directions in which you could take this further. I have used the 
 <h1>Phase 2: Controlling the robot</h1>
 In the video below the robot is first being controlled by the iPhone gyroscopes, then it is tracking targets of varying colours and trying to chase them.
 
-<div align=center style='text-align:center'>
-<video width="480" height="268" autoplay="autoplay" loop>
-  <source src="images/Pibot3.mov" type="video/mp4">
-Your browser does not support the video tag. Try Chrome or Safari.
-</div>
 <p>
 The robot I created uses the <a href="http://www.dexterindustries.com/BrickPi/">BrickPi</a> system for connecting to Lego Mindstorms motors. You will need to follow <a href="http://www.dexterindustries.com/BrickPi/getting-started/">their instructions</a> in order to install the necessary drivers - I took the easy option of using their Raspian image and then installing everything else I wanted, but you can modify an existing system. <br>
 </p>
