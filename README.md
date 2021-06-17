@@ -5,7 +5,8 @@ This page is about a project to create an intelligent Raspberry Pi powered mobil
 
 <h1>Phase 1: Object detection</h1>
 
-[![Demo ObjectTracking alpha](https://j.gifs.com/Y761JM.gif)](https://gifs.com/gif/target-Y761JM)
+[![Demo ObjectTracking alpha](https://j.gifs.com/Y761JM.gif)]
+
 There are two version of the files: one for use on a Raspberry Pi with camera module, and the other for use on a PC with webcam. There are few changes, but in order to keep the code clean and clear I have made separate versions. 
 
 <p>First you need to make sure that your Raspberry Pi is properly set up and can obtain an image programmatically. My preferred option is to use v4l2. You will also need to install the open Computer Vision library <a href="http://docs.opencv.org">openCV</a>, with 'sudo apt-get install libopencv-dev python-opencv'.</p>
